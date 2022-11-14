@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
@@ -6,6 +6,11 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
+
+    <ItemGroup>
+      <None Remove="src\Handlers\Discord\NewFile1.txt" />
+      <None Remove="src\Handlers\NewFile1.txt" />
+    </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="DSharpPlus" Version="4.3.0-nightly-01185" />
