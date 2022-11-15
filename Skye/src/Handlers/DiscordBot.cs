@@ -16,13 +16,9 @@ public class DiscordBot
 
 	private static async Task Create()
 	{
-		Client.UseSlashCommands().RegisterCommands<SlashCommands>();
-
-#pragma warning disable CS1998 
-        Client.MessageCreated += async (sender, e) => Console.WriteLine(e.Message);
-#pragma warning restore CS1998
-
-        await Client.ConnectAsync();
+		Client.MessageCreated += async (sender, e) => Console.WriteLine(e.Message);
+		
+		await Client.ConnectAsync();
 	}
 
 	public DiscordBot() =>
