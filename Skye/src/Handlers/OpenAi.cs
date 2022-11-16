@@ -36,9 +36,9 @@ public class SnakeCase : JsonNamingPolicy
 
 public static class OpenAi
 {
-    public static async Task<OpenAiResponse?> GenerateResponse(string inputText)
+    public static async Task<OpenAiResponse> GenerateResponse(string inputText)
     {
-        OpenAiRequest aiRequest = new("text-davinci-002", inputText, 0.7, 100, 1, 0, 0);
+        OpenAiRequest aiRequest = new("text-babbage-001", inputText, 0.7, 100, 1, 0, 0);
 
         string inputJson = JsonSerializer.Serialize(aiRequest, JsonHelper.SerializerOptions);
         using StringContent content = new(inputJson, Encoding.UTF8, "application/json");
