@@ -16,5 +16,5 @@
       <PackageReference Include="DSharpPlus" Version="4.3.0-nightly-01185" />
       <PackageReference Include="DSharpPlus.SlashCommands" Version="4.3.0-nightly-01185" />
     </ItemGroup>
-
+    
 </Project>
