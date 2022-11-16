@@ -4,18 +4,30 @@ using Skye.Objects;
 
 namespace Skye.Handlers;
 
-public class LowerCasePolicy : JsonNamingPolicy
+public class SnakeCase : JsonNamingPolicy
 {
-    //This is fucking abysmal but go fuck your self
     public override string ConvertName(string name)
     {
-        StringBuilder returnValue = new StringBuilder();
+        StringBuilder returnValue = new();
 
-        foreach (var c in name)
+        for (var index = 0; index < name.Length; index++)
         {
-            //omfg
-            if (c is >= 'A' and <= 'Z')
-                c = Char.ToLower(c);
+            char currentChar = name[index];
+            
+            switch (currentChar)
+            {
+                case >= 'A' and <= 'Z':
+                {
+                    if (index != 0 && name[index - 1] is >= 'a' and <= 'z')
+                        returnValue.Append('_');
+
+                    returnValue.Append(Char.ToLower(currentChar));
+                    continue;
+                }
+                default:
+                    returnValue.Append(currentChar);
+                    break;
+            }
         }
 
         return returnValue.ToString();
@@ -24,28 +36,15 @@ public class LowerCasePolicy : JsonNamingPolicy
 
 public static class OpenAi
 {
-    private static readonly JsonSerializerOptions SerializerOptions = new()
+    public static async Task<OpenAiResponse?> GenerateResponse(string inputText)
     {
-        PropertyNamingPolicy = new LowerCasePolicy()
-    };
-    
-    public static async Task<string> GenerateResponse(string inputText)
-    {
-        OpenAiRequest aiRequest = new()
-        {
-            Model = "text-davinci-002",
-            Prompt = inputText,
-            Temperature = 0.7,
-            Max_tokens = 100,
-            Top_p = 1,
-            Frequency_penalty = 0,
-            Presence_penalty = 0
-        };
-        
-        string inputJson = JsonSerializer.Serialize(aiRequest, SerializerOptions);
-        Console.WriteLine(inputJson);
-        using StringContent content = new StringContent(inputJson, Encoding.UTF8, "application/json");
+        OpenAiRequest aiRequest = new("text-davinci-002", inputText, 0.7, 100, 1, 0, 0);
 
-        return await HttpHelper.SendAsync(OpenAiEndPoints.Completions, content);
+        string inputJson = JsonSerializer.Serialize(aiRequest, JsonHelper.SerializerOptions);
+        using StringContent content = new(inputJson, Encoding.UTF8, "application/json");
+        
+        string response =  await HttpHelper.SendAsync(OpenAiEndPoints.Completions, content);
+
+        return JsonHelper.TryDeserialize<OpenAiResponse>(response, out var result) ? result : new OpenAiResponse();
     }
 }
