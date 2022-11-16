@@ -1,19 +1,7 @@
 ﻿using System.Net.Http.Headers;
-using System.Text;
+using Skye.Extensions;
 
 namespace Skye.Handlers;
-
-public static class HttpClientExtension
-{
-	public static HttpClient Modify(this HttpClient client, Action<HttpClient> action)
-	{
-		action(client);
-		return client;
-	}
-
-	public static async Task<string> GetResponse(this Task<HttpResponseMessage> responseMessage)
-		=> await responseMessage.Result.Content.ReadAsStringAsync();
-}
 
 public static class HttpHelper
 {
