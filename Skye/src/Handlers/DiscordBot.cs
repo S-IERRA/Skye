@@ -8,7 +8,7 @@ public class DiscordBot
 {
 	private static readonly DiscordConfiguration Configuration = new()
 	{
-		Token = "MTA0MTg0NjU2NzU1ODIwNTU0MA.GNr9RZ.RDti_VARBHU5z1LE4mamoiaLAnIy9D5d40rF60",
+		Token = "YOUR_BOT_TOKEN",
 		TokenType = TokenType.Bot,
 		Intents = DiscordIntents.All
 	};

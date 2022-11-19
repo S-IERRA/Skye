@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\projects\\V-ARS\\Skye\\Skye\\Skye.csproj": {}
+    "C:\\Users\\elias\\Documents\\Repos\\Skye\\Skye\\Skye.csproj": {}
   },
   "projects": {
-    "D:\\projects\\V-ARS\\Skye\\Skye\\Skye.csproj": {
+    "C:\\Users\\elias\\Documents\\Repos\\Skye\\Skye\\Skye.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\projects\\V-ARS\\Skye\\Skye\\Skye.csproj",
+        "projectUniqueName": "C:\\Users\\elias\\Documents\\Repos\\Skye\\Skye\\Skye.csproj",
         "projectName": "Skye",
-        "projectPath": "D:\\projects\\V-ARS\\Skye\\Skye\\Skye.csproj",
-        "packagesPath": "C:\\Users\\someOne\\.nuget\\packages\\",
-        "outputPath": "D:\\projects\\V-ARS\\Skye\\Skye\\obj\\",
+        "projectPath": "C:\\Users\\elias\\Documents\\Repos\\Skye\\Skye\\Skye.csproj",
+        "packagesPath": "C:\\Users\\elias\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\elias\\Documents\\Repos\\Skye\\Skye\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\someOne\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\elias\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -1,6 +1,6 @@
 ﻿namespace Skye.Objects;
 
-public class OpenAiEndPoints
+public static class OpenAiEndPoints
 {
     private const string BaseEndPoint = "https://api.openai.com/v1";
     public const string Completions = $"{BaseEndPoint}/completions";
